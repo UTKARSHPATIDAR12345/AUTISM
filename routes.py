@@ -4,7 +4,7 @@ from uuid import uuid4
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, send_from_directory, request, abort
-from pro.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from pro.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm ,qna
 from pro.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -74,9 +74,10 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route("/QNA.html")
+@app.route("/QNA.html",methods=['GET','POST'])
 def QNA():
+    form = qna(request.form)
 
-    return render_template('QNA.html')
+    return render_template('QNA.html',form=form)
 
 

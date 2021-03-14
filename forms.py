@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from pro.models import User
 
@@ -69,3 +69,10 @@ class PostForm(FlaskForm):
     content = TextAreaField("Content", validators=[DataRequired()])
     submit = SubmitField("Post")
 
+class qna(FlaskForm):
+
+    a1 = SelectField('ID1',choices=[(1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5')],validators=[DataRequired()])
+    a2 = SelectField('ID2',choices=[(1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5')], validators=[DataRequired()])
+    a3 = SelectField('ID3',choices=[(1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5')], validators=[DataRequired()])
+    a4 = SelectField('ID4',choices=[(1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5')], validators=[DataRequired()])
+    a5 = SelectField('ID5', choices=[(1,'1'),(2,'2'),(3,'3'),(4,'4'),(5,'5')],validators=[DataRequired()])
